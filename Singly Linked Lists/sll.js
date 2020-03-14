@@ -48,33 +48,56 @@ class SinglyLinkedList {
   //   }
   // }
 
-  // Popping pseudocode
-  // If there are no nodes in the list, return undefined
-  // Loop through the list until you reach the tail
-  // Set the next property of the 2nd to last node to be null
-  // Set the tail to be the 2nd to last node
-  // Decrement the length of the list by 1
-  // Return the value of the node removed
   pop() {
+    // If there are no nodes in the list, return undefined
     if (!this.head) return undefined;
 
     let current = this.head;
     let newTail = current;
+    // Loop through the list until you reach the tail
     while (current.next) {
       newTail = current;
       current = current.next;
     }
 
+    // Set the tail to be the 2nd to last node
     this.tail = newTail;
+    // Set the next property of the 2nd to last node to be null
     this.tail.next = null;
+    // Decrement the length of the list by 1
+
     this.length--;
 
+    // If there is one item in the list set the head and tail to null
     if (this.length === 0) {
       this.head = null;
       this.tail = null;
     }
 
+    // Return the value of the node removed
     return current;
+  }
+
+  shift() {
+    // If there are no nodes, return undefined
+    if (!this.head) return undefined;
+
+    // Store the current head property in a variable
+    const currentHead = this.head;
+
+    // Set the head property to be the current head's next property
+    this.head = currentHead.next;
+
+    // Decrement the length by 1
+    this.length--;
+
+    // If there is one item in the list set the tail to null
+    if (this.length === 0) {
+      this.tail = null;
+    }
+
+    // Return the value of the node removed
+    return currentHead;
   }
 }
 
