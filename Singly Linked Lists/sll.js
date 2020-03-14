@@ -99,6 +99,30 @@ class SinglyLinkedList {
     // Return the value of the node removed
     return currentHead;
   }
+
+  // This function should accept a value
+  unshift(val) {
+    // Create a new node using the value passed to the function
+    const newNode = new Node(val);
+
+    // If there is no head property on the list, set the head and tail to be the newly created node
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      // Otherwise set the newly created node's next property to be the current head property on the list
+      newNode.next = this.head;
+
+      // Set the head property on the list to be that newly created node
+      this.head = newNode;
+    }
+
+    // Increment the length of the list by 1
+    this.length++;
+
+    // Return the linked list
+    return this;
+  }
 }
 
 const list = new SinglyLinkedList();
