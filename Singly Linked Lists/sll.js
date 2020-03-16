@@ -134,12 +134,28 @@ class SinglyLinkedList {
     if (index < 0 || index >= this.length) return null;
 
     // Loop through the list until you reach the index and return the node at that specific index
-    while (counter < index) {
+    while (counter !== index) {
       node = node.next;
       counter++;
     }
 
     return node;
+  }
+
+  set(value, index) {
+    // This function should accept a value and an index
+
+    // Use your get function to find the specific node
+    let node = this.get(index);
+
+    // If the node is not found, return false
+    if (!node) {
+      return false;
+    } else {
+      // If the node is found, set the value of that node to be the value passed to the function and return true
+      node.val = value;
+      return true;
+    }
   }
 }
 
