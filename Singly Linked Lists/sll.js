@@ -108,7 +108,7 @@ class SinglyLinkedList {
     // If there is no head property on the list, set the head and tail to be the newly created node
     if (!this.head) {
       this.head = newNode;
-      this.tail = newNode;
+      this.tail = this.head;
     } else {
       // Otherwise set the newly created node's next property to be the current head property on the list
       newNode.next = this.head;
@@ -122,6 +122,24 @@ class SinglyLinkedList {
 
     // Return the linked list
     return this;
+  }
+
+  get(index) {
+    // This function should accept an index
+
+    let counter = 0;
+    let node = this.head;
+
+    // If the index is less than zero or greater than or equal to the length of the list, return null
+    if (index < 0 || index >= this.length) return null;
+
+    // Loop through the list until you reach the index and return the node at that specific index
+    while (counter < index) {
+      node = node.next;
+      counter++;
+    }
+
+    return node;
   }
 }
 
