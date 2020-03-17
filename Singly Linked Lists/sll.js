@@ -157,6 +157,49 @@ class SinglyLinkedList {
       return true;
     }
   }
+
+  insert(value, index) {
+    // Function takes an index and a value
+
+    // If the index is less than zero or greater than the length, return false
+    if (index < 0 || index > this.length) return false;
+    // If the index is the same as the length, push a new node to the end of the list
+    if (index === this.length) return !!this.push(value);
+    // If the index is 0, unshift a new node to the start of the list
+    if (index === 0) return !!this.unshift(value);
+    const newNode = new Node(value);
+    // Otherwise, using the get method, access the node at the index - 1
+    let prev = this.get(index - 1);
+    let temp = prev.next;
+    // Set the next property on that node to be the new node
+    prev.next = newNode;
+    // Set the next property on the new node to be the previous next
+    newNode.next = temp;
+    // Increment the length
+    this.length++;
+    // Return true
+    return true;
+  }
+
+  remove(index) {
+    // Function takes an index
+
+    // If the index is less than zero or greater than the length, return null
+    if (index < 0 || index > this.length) return null;
+    // If the index is the same as the length - 1, pop
+    if (index === this.length - 1) return this.pop();
+    // If the index is 0, shift
+    if (index === 0) return this.shift();
+    // Otherwise, using the get method, access the node at the index - 1
+    const prev = this.get(index - 1);
+    // Set the next property on that node to be the next of the next node
+    const removed = prev.next;
+    prev.next = removed.next;
+    // Decrement the length
+    this.length--;
+    // Return the value of the node removed
+    return removed;
+  }
 }
 
 const list = new SinglyLinkedList();
