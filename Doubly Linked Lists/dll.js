@@ -60,6 +60,32 @@ class DoublyLinkedList {
     // return the value removed
     return poppedNode;
   }
+
+  // Shift
+  shift() {
+    // If length is 0, return undefined
+    if (!this.head) return undefined;
+    // Store the current head property in a variable (we'll call it old head)
+    const oldHead = this.head;
+    // If the length is one
+    if (this.length === 1) {
+      // Set the head to be null
+      this.head = null;
+      // Set the tail to be null
+      this.tail = null;
+    }
+    // Update the head to be the next of the old head
+    this.head = oldHead.next;
+    // Set the head's prev property to null
+    this.head.prev = null;
+    // Set the old head's next to null
+    oldHead.next = null;
+
+    // Decrement the length
+    this.length--;
+    // Return old head
+    return oldHead;
+  }
 }
 
 const newList = new DoublyLinkedList();
