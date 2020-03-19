@@ -73,18 +73,73 @@ class DoublyLinkedList {
       this.head = null;
       // Set the tail to be null
       this.tail = null;
+    } else {
+      // Update the head to be the next of the old head
+      this.head = oldHead.next;
+      // Set the head's prev property to null
+      this.head.prev = null;
+      // Set the old head's next to null
+      oldHead.next = null;
     }
-    // Update the head to be the next of the old head
-    this.head = oldHead.next;
-    // Set the head's prev property to null
-    this.head.prev = null;
-    // Set the old head's next to null
-    oldHead.next = null;
-
     // Decrement the length
     this.length--;
     // Return old head
     return oldHead;
+  }
+
+  // Unshift
+  unshift(value) {
+    // Create a new node with the value passed to the function
+    const newNode = new Node(value);
+    // If the length is 0
+    if (this.length === 0) {
+      // Set the head to be the new node
+      this.head = newNode;
+      // Set the tail to be the new node
+      this.tail = newNode;
+    } else {
+      // Otherwise
+      // Set the prev property on the head of the list to be the new node
+      this.head.prev = newNode;
+      // Set the next property on the new node to be the head property
+      newNode.next = this.head;
+      // Update the head to be the new node
+      this.head = newNode;
+    }
+    // Increment the length
+    this.length++;
+    // Return the list
+    return this;
+  }
+
+  // Get
+  get(index) {
+    // If the index is less than 0 or equal to the length, return undefined
+    if (index < 0 || index >= this.length) return undefined;
+    let count, current;
+    // If the index is less than or equal to half the length of the list
+    if (index <= this.length / 2) {
+      count = 0;
+      current = this.head;
+      // Loop through the list starting from the head and loop towards the middle
+      while (count !== index) {
+        current = current.next;
+        count++;
+      }
+      // Return the node once it is found
+      return current;
+    } else {
+      // If the index is greater than half the length of the list
+      count = this.length - 1;
+      current = this.tail;
+      // Loop through the list starting from the tail and loop towards the middle
+      while (count !== index) {
+        current = current.prev;
+        count--;
+      }
+      // Return the node once it is found
+      return current;
+    }
   }
 }
 
