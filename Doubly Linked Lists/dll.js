@@ -141,6 +141,21 @@ class DoublyLinkedList {
       return current;
     }
   }
+
+  // Set
+  set(value, index) {
+    // Create a variable which is the result of the get method at the index passed to the function
+    let node = this.get(index);
+
+    // If the get method returns a valid node, set the value of that node to be the value passed to the function
+    if (node !== null) {
+      node.value = value;
+      // Return true
+      return true;
+    }
+    // Otherwise, return false
+    return false;
+  }
 }
 
 const newList = new DoublyLinkedList();
