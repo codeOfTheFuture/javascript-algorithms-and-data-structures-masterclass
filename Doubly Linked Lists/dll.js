@@ -179,6 +179,41 @@ class DoublyLinkedList {
     // Return true
     return true;
   }
+
+  // Remove
+  remove(index) {
+    // Use the get method to retrieve the item to be removed
+    // Update the next and prev properties to remove the found node from the list
+    // Set next and prev to null on the found node
+    // Decrement the length
+    // Return the removed node.
+
+    // If he index is less than zero or greater than or equal to the length return undefined
+    if (index < 0 || index >= this.length) return undefined;
+    // If the index is 0, shift
+    if (index === 0) return this.shift();
+    // If the index is the lame as the length - 1, pop
+    if (index === this.length - 1) return this.pop();
+
+    let removedNode = this.get(index);
+    let prevNode = removedNode.prev;
+    let nextNode = removedNode.next;
+
+    (prevNode.next = nextNode), (nextNode.prev = prevNode);
+    (removedNode.prev = null), (removedNode.next = null);
+
+    this.length--;
+    return removedNode;
+  }
 }
 
 const newList = new DoublyLinkedList();
+
+// Big O of Doubly Linked Lists
+
+// Insertion - O(1)
+// Removal - O(1)
+// Searching - O(n)
+// Access - O(n)
+
+// Technically searching is O(n / 2), but that's still O(n)
