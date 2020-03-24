@@ -16,8 +16,8 @@ class BinarySearchTree {
     // Create a new node
     const newNode = new Node(value);
     // Starting at the root
-    // Check if there is a root, if not - the root now becomes that new node
     if (!this.root) {
+      // Check if there is a root, if not - the root now becomes that new node
       this.root = newNode;
       return this;
     } else {
@@ -48,6 +48,47 @@ class BinarySearchTree {
               // If there is, move to that node and repeat these steps
               current = current.right;
             }
+          }
+        }
+      }
+    }
+  }
+
+  // Find
+
+  // Starting at the root
+  // Check if there is a root, if not - we're done searching
+  // If there is a root, check if the value of the new node is the value we are looking for.
+  // If it is the node, we're done.
+  // If not, check to see if the value is greater than or less than the value of the root
+  // If it is greater
+  // Check to see if there is a node to the right
+  // If there is, move to that node and repeat these steps
+  // If there is not, we're done searching
+  // If it is less
+  // Check to see if there is a node to the left
+  // If there is, move to that node and repeat these steps
+  // If there is not, we're done searching
+
+  find(value) {
+    if (!this.root) {
+      return false;
+    } else {
+      while (true) {
+        let current = this.root;
+        if (value === current.value) {
+          return true;
+        } else if (value < current.value) {
+          if (!current.left) {
+            return false;
+          } else {
+            current = current.left;
+          }
+        } else {
+          if (!current.right) {
+            return false;
+          } else {
+            current = current.right;
           }
         }
       }
