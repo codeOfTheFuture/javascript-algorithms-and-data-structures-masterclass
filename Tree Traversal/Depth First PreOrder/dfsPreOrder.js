@@ -10,7 +10,6 @@ bst.insert(8);
 bst.insert(20);
 
 // DFS Pre-order Steps - Recursively
-
 function dfsPreOrder(bst) {
   // Create a variable to store the values of nodes visited
   const result = [];
