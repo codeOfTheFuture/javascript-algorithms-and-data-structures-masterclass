@@ -7,9 +7,7 @@
 - find
 - findIndex
 
-## Example
-
-### Search States
+## Search States
 
 Given an array, the simplest way to search for a value is to look at every element in the array
 and check if it's the value we want
@@ -82,13 +80,37 @@ stateNames.includes("Mexico"); // Returns false
 
 When you perform a liner search when you visit one item at a time either starting at the beginning moving forward or starting at the end moving backwards.
 
-**Liner Search Pseudocode**
+## Linear Search Pseudocode
 
 - This function accepts an array and a value
 - Loop through the array and check if the current array element is equal to the value
 - If it is, return the index at which the element is found
 - If the value is never found, return -1
 
-```javascript
+## Linear Search Exercise
 
+Write a function call **linearSearch** which accepts an array and a value, and returns the index at which the value exists. If the value does not exist in the array, return -1.
+
+Don't use indexOf to implement this function!
+
+```javascript
+// Liner Search
+
+// ** Examples **
+// linearSearch([10, 15, 20, 25, 30], 15) // 1
+
+function linearSearch(arr, val) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === val) return i;
+  }
+  return -1;
+}
+
+linearSearch([10, 15, 20, 25, 30], 20); // 2
+linearSearch([10, 15, 20, 25, 30], 150); // -1
 ```
+
+## Linear Search BIG O
+
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
