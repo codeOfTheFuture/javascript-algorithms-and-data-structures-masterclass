@@ -1,4 +1,5 @@
 myArray = [2, 1, 9, 76, 4];
+
 function insertionSort(arr) {
   for (let i = 1; i < arr.length; i++) {
     // Start by picking the second element in the array
@@ -17,3 +18,11 @@ function insertionSort(arr) {
 }
 
 insertionSort(myArray);
+
+// Big O
+// Time Complexity: O(n ^ 2)
+// Space Complexity: O(1)
+
+// This sort works well with data that needs to be continuously sorted.
+// i.e. data that is coming in live and needs to immediatly be inserted
+// into its correct spot in a data set that is already sorted.

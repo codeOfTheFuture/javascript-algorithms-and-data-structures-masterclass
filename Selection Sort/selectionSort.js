@@ -27,3 +27,9 @@ function selectionSort(arr) {
 }
 
 console.log(selectionSort(myArray));
+
+// Big O
+// Time Complexity: O(n ^ 2)
+// Space Complexity: O(1)
+
+// This sort does not work well with nearly sorted data

@@ -29,7 +29,7 @@
 
 // return the pivot index
 
-function pivot(arr, start = 0, end = arr.length + 1) {
+function pivot(arr, start = 0) {
   const swap = (array, i, j) => {
     let temp = array[i];
     array[i] = array[j];
@@ -59,7 +59,7 @@ function pivot(arr, start = 0, end = arr.length + 1) {
 
 function quickSort(arr, left = 0, right = arr.length - 1) {
   if (left < right) {
-    let pivotIndex = pivot(arr, left, right);
+    let pivotIndex = pivot(arr, left);
     // left
     quickSort(arr, left, pivotIndex - 1);
     // right
@@ -69,3 +69,11 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 }
 
 console.log(quickSort([4, 8, 2, 1, 5, 7, 6, 3]));
+
+// Big O
+// Time Complexity
+// Average Case: O(n log n)
+// Worst Case: O(n ^ 2)
+
+// Space Complexity
+// O(1)

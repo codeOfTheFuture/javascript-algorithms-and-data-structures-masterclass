@@ -45,3 +45,7 @@ function mergeSort(arr) {
 }
 
 console.log(mergeSort([80, 10, 45, 0, 7, 4]));
+
+// Big O
+// Time Complexity: O(n log n)
+// Space Complexity: O(1)

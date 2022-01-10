@@ -62,4 +62,10 @@ function bubbleSort(arr) {
 //   return arr;
 // }
 
-// console.log(bubbleSort(myArray));
+console.log(bubbleSort(myArray));
+
+// Big O
+// Time Complexity: O(n ^ 2)
+// Space Complexity: 0(1)
+
+// Works well on data that is almost sorted
