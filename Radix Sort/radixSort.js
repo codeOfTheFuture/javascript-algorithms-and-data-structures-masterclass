@@ -29,11 +29,14 @@ function radixSort(numArr) {
   let maxDigitCount = maxDigits(numArr);
   for (let k = 0; k < maxDigitCount; k++) {
     let digitBuckets = Array.from({ length: 10 }, () => []);
-    for (let i = 0; i < numArr.length; i++) {
-      const digitBucketIndex = getDigit(numArr[i], k);
-      digitBuckets[digitBucketIndex].push(numArr[i]);
+    for (let num of numArr) {
+      const digitBucketIndex = getDigit(num, k);
+      digitBuckets[digitBucketIndex].push(num);
     }
-    numArr = [].concat(...digitBuckets);
+    numArr = digitBuckets.reduce(
+      (newNumArr, bucket) => newNumArr.concat([...bucket]),
+      []
+    );
   }
   return numArr;
 }
