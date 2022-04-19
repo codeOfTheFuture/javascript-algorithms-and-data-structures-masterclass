@@ -263,3 +263,9 @@ console.log(pq.dequeue());
 console.log(pq.values);
 console.log(pq.dequeue());
 console.log(pq.values);
+
+// Big O of Binary Heaps
+// Insertion: O(log n)
+// Removal: O(log n)
+// Search: O(n)
+// Space: O(n)
