@@ -8,12 +8,6 @@ class Node {
   }
 }
 
-// const first = new Node("Hi");
-// first.next = new Node("there");
-// first.next.next = new Node("how");
-// first.next.next.next = new Node("are");
-// first.next.next.next.next = new Node("you");
-
 class SinglyLinkedList {
   constructor() {
     this.head = null;
@@ -40,23 +34,17 @@ class SinglyLinkedList {
     return this;
   }
 
-  // traverse() {
-  //   let current = this.head;
-  //   while(current) {
-  //     console.log(current.val);
-  //     current = current.next;
-  //   }
-  // }
-
   pop() {
     // If there are no nodes in the list, return undefined
     if (!this.head) return undefined;
 
     let current = this.head;
     let newTail = current;
-    // Loop through the list until you reach the tail
+    // Loop through the list until you reach the second to last node
     while (current.next) {
+      // Set the new tail to be the current node
       newTail = current;
+      // Set the current node to be the next node
       current = current.next;
     }
 
@@ -223,6 +211,20 @@ class SinglyLinkedList {
       // Set the node variable to be the value of the next variable
       node = next;
     }
+    // Return the list
+    return this;
+  }
+
+  // Rotate the list by k number of nodes
+  rotate(k) {
+    // If the length of the list is less than or equal to k, return the list
+    if (this.length <= k) return this;
+    // Otherwise, use the get method to access the node at the index k
+    const node = this.get(k);
+    // Set the head to be the node at index k
+    this.head = node;
+    // Set the next property of the node at index k to be the node at index 0
+    node.next = this.get(0);
     // Return the list
     return this;
   }

@@ -269,3 +269,5 @@ console.log(pq.values);
 // Removal: O(log n)
 // Search: O(n)
 // Space: O(n)
+
+export default PriorityQueue;
